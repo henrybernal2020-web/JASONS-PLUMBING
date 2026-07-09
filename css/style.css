@@ -28,6 +28,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* keep anchor targets clear of the sticky header */
+section[id], #quote { scroll-margin-top: 92px; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -409,9 +411,12 @@ a { color: var(--copper-deep); }
 }
 .google-badge {
   display: grid; justify-items: center; gap: 2px;
+  text-decoration: none; color: inherit;
   background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
   padding: 18px 30px; border-radius: var(--radius);
+  transition: border-color .2s ease, background .2s ease;
 }
+.google-badge:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.1); }
 .g-stars { color: #f6b73c; letter-spacing: 3px; font-size: 1.05rem; }
 .g-score { font-family: var(--font-display); font-weight: 800; font-size: 2rem; line-height: 1; }
 .g-label { font-size: .62rem; color: #9fb8b4; }
@@ -517,6 +522,7 @@ a { color: var(--copper-deep); }
 .brand-light { color: #fff; }
 .footer-brand p { max-width: 30ch; }
 .footer-license { font-size: .68rem; color: #7fa39d; }
+.footer-hours { font-size: .68rem; color: #7fa39d; margin-top: 10px; line-height: 1.7; }
 .footer-col h3 {
   font-size: .68rem; text-transform: uppercase; color: #7fa39d;
   margin: 0 0 16px; font-weight: 700;
